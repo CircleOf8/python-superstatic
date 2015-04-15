@@ -59,6 +59,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\pythonembed.pdb</ProgramDataBaseFileName>     
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

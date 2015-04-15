@@ -1,6 +1,6 @@
-diff -Nru Python-2.7.3/Lib/ctypes/__init__.py Python-2.7.3/Lib/ctypes/__init__.py
---- Python-2.7.3/Lib/ctypes/__init__.py	2010-03-01 04:56:12.000000000 +0000
-+++ Python-2.7.3/Lib/ctypes/__init__.py	2010-07-11 15:42:53.000000000 +0000
+diff -Nru Python-2.7.9.org/Lib/ctypes/__init__.py Python-2.7.9/Lib/ctypes/__init__.py
+--- Python-2.7.9.org/Lib/ctypes/__init__.py	Wed Dec 10 16:59:34 2014
++++ Python-2.7.9/Lib/ctypes/__init__.py	Thu Apr 16 01:22:23 2015
 @@ -445,12 +445,12 @@
  cdll = LibraryLoader(CDLL)
  pydll = LibraryLoader(PyDLL)
@@ -20,9 +20,21 @@ diff -Nru Python-2.7.3/Lib/ctypes/__init__.py Python-2.7.3/Lib/ctypes/__init__.p
  
  
  if _os.name in ("nt", "ce"):
-diff -Nru Python-2.7.3/PC/config.c Python-2.7.3/PC/config.c
---- Python-2.7.3/PC/config.c	2010-05-09 14:46:46.000000000 +0000
-+++ Python-2.7.3/PC/config.c	2010-07-11 20:00:24.000000000 +0000
+diff -Nru Python-2.7.9.org/Modules/posixmodule.c Python-2.7.9/Modules/posixmodule.c
+--- Python-2.7.9.org/Modules/posixmodule.c	Wed Dec 10 16:59:56 2014
++++ Python-2.7.9/Modules/posixmodule.c	Thu Apr 16 01:22:45 2015
+@@ -503,7 +503,7 @@
+     char osfile;
+ } my_ioinfo;
+ 
+-extern __declspec(dllimport) char * __pioinfo[];
++extern char * __pioinfo[];
+ #define IOINFO_L2E 5
+ #define IOINFO_ARRAY_ELTS   (1 << IOINFO_L2E)
+ #define IOINFO_ARRAYS 64
+diff -Nru Python-2.7.9.org/PC/config.c Python-2.7.9/PC/config.c
+--- Python-2.7.9.org/PC/config.c	Wed Dec 10 16:59:58 2014
++++ Python-2.7.9/PC/config.c	Thu Apr 16 01:22:23 2015
 @@ -69,6 +69,12 @@
  extern void init_io(void);
  extern void _PyWarnings_Init(void);
@@ -36,23 +48,23 @@ diff -Nru Python-2.7.3/PC/config.c Python-2.7.3/PC/config.c
  /* tools/freeze/makeconfig.py marker for additional "extern" */
  /* -- ADDMODULE MARKER 1 -- */
  
-@@ -165,6 +171,12 @@
+@@ -164,6 +170,12 @@
+     {"_warnings", _PyWarnings_Init},
  
      {"_io", init_io},
- 
++
 +	{"_ctypes", init_ctypes},
 +	{"_ssl", init_ssl},
 +	{"_hashlib", init_hashlib},
 +	{"_socket", init_socket},
 +	{"select", initselect},
-+
+ 
      /* Sentinel */
      {0, 0}
- };
-diff -Nru Python-2.7.3/PC/pyconfig.h Python-2.7.3/PC/pyconfig.h
---- Python-2.7.3/PC/pyconfig.h	2009-10-24 13:28:38.000000000 +0000
-+++ Python-2.7.3/PC/pyconfig.h	2010-07-11 15:40:51.000000000 +0000
-@@ -566,7 +566,7 @@
+diff -Nru Python-2.7.9.org/PC/pyconfig.h Python-2.7.9/PC/pyconfig.h
+--- Python-2.7.9.org/PC/pyconfig.h	Wed Dec 10 16:59:58 2014
++++ Python-2.7.9/PC/pyconfig.h	Thu Apr 16 01:22:23 2015
+@@ -575,7 +575,7 @@
  /* #define HAVE_CLOCK */
  
  /* Define when any dynamic module loading is enabled */

@@ -1,7 +1,7 @@
 PYTHON_V=2.7.9
 OPENSSL_V=1.0.2a
 
-all: dist
+all: pythonstatic.7z
 
 clean:
 	-rmdir /s /q Python-$(PYTHON_V)
@@ -57,13 +57,14 @@ dist: Python-$(PYTHON_V)/PCbuild/pythonembed.lib
 	mkdir dist
 	copy Python-$(PYTHON_V)\PCbuild\pythonembed.lib dist
 	copy Python-$(PYTHON_V)\PCbuild\pythonembed_d.lib dist
+	copy Python-$(PYTHON_V)\PCbuild\pythonembed.pdb dist
 	copy openssl-$(OPENSSL_V)\out32\libeay32.lib dist
 	copy openssl-$(OPENSSL_V)\out32\ssleay32.lib dist
+	copy openssl-$(OPENSSL_V)\tmp32\lib.pdb dist
 	mkdir dist\include
 	copy Python-$(PYTHON_V)\PC\pyconfig.h dist\include
 	copy Python-$(PYTHON_V)\Include\*.h dist\include
 	xcopy /S openssl-$(OPENSSL_V)\include dist\include
-  xcopy /SI Python-$(PYTHON_V)\Lib dist\python-lib-full
   xcopy /SI Python-$(PYTHON_V)\Lib dist\python-lib
   
 # Cleans up the library a bit
@@ -105,3 +106,8 @@ dist: Python-$(PYTHON_V)/PCbuild/pythonembed.lib
   rd /s /q unittest  
   rd /s /q wsgiref  
   cd ..\..\
+
+pythonstatic.7z: dist
+  cd dist
+  7z a ..\pythonstatic.7z *
+  cd ..\
