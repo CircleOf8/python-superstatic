@@ -4,8 +4,8 @@ OPENSSL_V=1.0.2a
 all: pythonstatic.7z
 
 clean:
-	-rmdir /s /q Python-$(PYTHON_V)
-	-rmdir /s /q openssl-$(OPENSSL_V)
+	-rd /s /q Python-$(PYTHON_V)
+	-rd /s /q openssl-$(OPENSSL_V)
 
 Python-$(PYTHON_V)\stamp: Python-$(PYTHON_V).tgz python-2.7-superstatic-build.patch
 	@echo Unpacking Python $(PYTHON_V)
