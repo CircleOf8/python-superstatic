@@ -9,8 +9,8 @@ clean:
 
 Python-$(PYTHON_V)\stamp: Python-$(PYTHON_V).tgz python-2.7-superstatic-build.patch
 	@echo Unpacking Python $(PYTHON_V)
-	7za x -y Python-$(PYTHON_V).tgz >nul:
-	7za x -y Python-$(PYTHON_V).tar >nul:
+	7z x -y Python-$(PYTHON_V).tgz >nul:
+	7z x -y Python-$(PYTHON_V).tar >nul:
 	del Python-$(PYTHON_V).tar
 	cd Python-$(PYTHON_V) && patch -p1 < ..\python-2.7-superstatic-build.patch
 	echo>$@
@@ -32,8 +32,8 @@ Python-$(PYTHON_V)\stamp: Python-$(PYTHON_V).tgz python-2.7-superstatic-build.pa
 
 openssl-$(OPENSSL_V)\stamp: openssl-$(OPENSSL_V).tar.gz
 	@echo Unpacking OpenSSL $(OPENSSL_V)
-	7za x -y openssl-$(OPENSSL_V).tar.gz >nul:
-	7za x -y openssl-$(OPENSSL_V).tar >nul:
+	7z x -y openssl-$(OPENSSL_V).tar.gz >nul:
+	7z x -y openssl-$(OPENSSL_V).tar >nul:
 	del openssl-$(OPENSSL_V).tar
 	echo>$@
 
