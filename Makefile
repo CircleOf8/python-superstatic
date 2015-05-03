@@ -59,7 +59,7 @@ dist: Python-$(PYTHON_V)/PCbuild/pythonembed.lib
   mkdir dist\include
 	copy Python-$(PYTHON_V)\PCbuild\python27.lib dist\lib
   copy Python-$(PYTHON_V)\PCbuild\python27.pdb dist\lib
-	copy Python-$(PYTHON_V)\PCbuild\python27.lib dist\lib
+	copy Python-$(PYTHON_V)\PCbuild\python27_d.lib dist\lib
 	copy Python-$(PYTHON_V)\PCbuild\python27_d.pdb dist\lib
 	copy openssl-$(OPENSSL_V)\out32\libeay32.lib dist\lib
 	copy openssl-$(OPENSSL_V)\out32\ssleay32.lib dist\lib
