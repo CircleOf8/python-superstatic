@@ -55,13 +55,15 @@ Python-$(PYTHON_V)/PCbuild/pythonembed.lib: Python-$(PYTHON_V)\stamp openssl-$(O
 dist: Python-$(PYTHON_V)/PCbuild/pythonembed.lib
   -rd /s /q dist
 	mkdir dist
-	copy Python-$(PYTHON_V)\PCbuild\pythonembed.lib dist
-	copy Python-$(PYTHON_V)\PCbuild\pythonembed_d.lib dist
-	copy Python-$(PYTHON_V)\PCbuild\pythonembed.pdb dist
-	copy openssl-$(OPENSSL_V)\out32\libeay32.lib dist
-	copy openssl-$(OPENSSL_V)\out32\ssleay32.lib dist
-	copy openssl-$(OPENSSL_V)\tmp32\lib.pdb dist
-	mkdir dist\include
+  mkdir dist\lib
+  mkdir dist\include
+	copy Python-$(PYTHON_V)\PCbuild\python27.lib dist\lib
+  copy Python-$(PYTHON_V)\PCbuild\python27.pdb dist\lib
+	copy Python-$(PYTHON_V)\PCbuild\python27.lib dist\lib
+	copy Python-$(PYTHON_V)\PCbuild\python27_d.pdb dist\lib
+	copy openssl-$(OPENSSL_V)\out32\libeay32.lib dist\lib
+	copy openssl-$(OPENSSL_V)\out32\ssleay32.lib dist\lib
+	copy openssl-$(OPENSSL_V)\tmp32\lib.pdb dist\lib
 	copy Python-$(PYTHON_V)\PC\pyconfig.h dist\include
 	copy Python-$(PYTHON_V)\Include\*.h dist\include
 	xcopy /S openssl-$(OPENSSL_V)\include dist\include

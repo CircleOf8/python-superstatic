@@ -24,6 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <UseDebugLibraries>true</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -37,11 +38,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <GenerateManifest>false</GenerateManifest>
-    <TargetName>pythonembed</TargetName>
+    <TargetName>python27</TargetName>
     <OutDir>$(MSBuildProjectDirectory)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>pythonembed_d</TargetName>
+    <TargetName>python27_d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -59,7 +60,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\pythonembed.pdb</ProgramDataBaseFileName>     
+      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\python27.pdb</ProgramDataBaseFileName>     
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -78,6 +79,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WIN32;_DEBUG;Py_NO_ENABLE_SHARED;Py_BUILD_CORE;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>  
+      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\python27_d.pdb</ProgramDataBaseFileName>
     </ClCompile>
   </ItemDefinitionGroup>  
   <ItemGroup>
