@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-	<ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
@@ -14,13 +14,13 @@
     <ProjectGuid>{2E58F113-DEEF-4B4B-8A7F-9208C18B5481}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PythonEmbed</RootNamespace>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup>
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -57,10 +57,11 @@
       <CompileAsManaged>false</CompileAsManaged>
       <CompileAsWinRT>false</CompileAsWinRT>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\python27.pdb</ProgramDataBaseFileName>     
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\python27.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -70,29 +71,29 @@
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <Lib>
-      <IgnoreSpecificDefaultLibraries>libc;libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>      
+    <ClCompile>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WIN32;_DEBUG;Py_NO_ENABLE_SHARED;Py_BUILD_CORE;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>  
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(MSBuildProjectDirectory)\python27_d.pdb</ProgramDataBaseFileName>
     </ClCompile>
-  </ItemDefinitionGroup>  
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Objects\*.c"/>
-    <ClCompile Include="..\Parser\*.c"/>
-    <ClCompile Include="..\PC\*.c"/>
-    <ClCompile Include="..\Python\*.c"/>
-    <ClCompile Include="..\Modules\*.c"/>
-    <ClCompile Include="..\Modules\_ctypes\*.c"/>
-    <ClCompile Include="..\Modules\_ctypes\libffi_msvc\*.c"/>
-    <ClCompile Include="..\Modules\_io\*.c"/>
-    <ClCompile Include="..\Modules\cjkcodecs\*.c"/>
-    <ClCompile Include="..\Modules\zlib\*.c"/>
+    <ClCompile Include="..\Objects\*.c" />
+    <ClCompile Include="..\Parser\*.c" />
+    <ClCompile Include="..\PC\*.c" />
+    <ClCompile Include="..\Python\*.c" />
+    <ClCompile Include="..\Modules\*.c" />
+    <ClCompile Include="..\Modules\_ctypes\*.c" />
+    <ClCompile Include="..\Modules\_ctypes\libffi_msvc\*.c" />
+    <ClCompile Include="..\Modules\_io\*.c" />
+    <ClCompile Include="..\Modules\cjkcodecs\*.c" />
+    <ClCompile Include="..\Modules\zlib\*.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

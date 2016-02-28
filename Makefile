@@ -1,5 +1,5 @@
-PYTHON_V=2.7.9
-OPENSSL_V=1.0.2a
+PYTHON_V=2.7.11
+OPENSSL_V=1.0.2f
 
 all: pythonstatic.7z
 
