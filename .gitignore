@@ -1,4 +1,6 @@
 Python-*
+!Python-*.tgz
 openssl-*
+!openssl-*.tar.gz
 dist
 pythonstatic.7z
