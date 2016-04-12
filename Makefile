@@ -16,7 +16,7 @@ Python-$(PYTHON_V)\stamp: Python-$(PYTHON_V).tgz python-2.7-superstatic-build.pa
 	echo>$@
 	
 	cd Python-$(PYTHON_V)
-	-del PC\frozen_dllmain.c PC\python3dll.c PC\w9xpopen.c PC\WinMain.c PC\make_versioninfo.c PC\empty.c PC\dl_nt.c PC\_msi.c PC\generrmap.c
+	-del PC\frozen_dllmain.c PC\python3dll.c PC\w9xpopen.c PC\WinMain.c PC\make_versioninfo.c PC\empty.c PC\dl_nt.c PC\_msi.c PC\generrmap.c PC\strtod.c
 	-del Python\dynload_s* Python\dynload_next.c Python\dynload_aix.c Python\dynload_dl.c Python\dynload_hpux.c Python\dynload_os2.c Python\dup2.c Python\python.c
 	-del Modules\tk*.c Modules\_tk*.c Modules\getnameinfo.c Modules\getaddrinfo.c Modules\grpmodule.c Modules\pwdmodule.c Modules\nismodule.c Modules\termios.c Modules\_gestalt.c Modules\syslogmodule.c Modules\spwdmodule.c Modules\bz2module.c Modules\readline.c Modules\ossaudiodev.c Modules\fcntlmodule.c Modules\_test* Modules\main.c Modules\getpath.c Modules\pyexpat.c Modules\_dbmmodule.c Modules\_cursesmodule.c Modules\_scproxy.c Modules\resource.c Modules\_posixsubprocess.c Modules\_elementtree.c Modules\_gdbmmodule.c Modules\getcwd.c
 	-del Python\getcwd.c
